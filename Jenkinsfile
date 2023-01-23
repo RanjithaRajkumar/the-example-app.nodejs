@@ -37,3 +37,4 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
       }
     }  
   }
+}
