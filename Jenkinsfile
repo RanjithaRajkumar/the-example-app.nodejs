@@ -24,7 +24,7 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
   // }
   stage ('Deploy') {
     steps{
-        //sshagent(credentials : ['node-server']) {
+        sshagent(credentials : ['node-server']) {
             sh "ssh -o StrictHostKeyChecking=no ubuntu@34.222.48.98 'echo $HOME'"
             sh 'ssh -v ubuntu@34.222.48.98'
             sh 'scp /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline_master/ ubuntu@34.222.48.98:/home/ubuntu/the-example-app.nodejs/'
@@ -33,8 +33,8 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
 }                                                                                                                                          
     stage('Build') {
       steps {
-        sh 'ssh ubuntu@34.222.48.98 npm install && npm run start:dev'
+        sh 'ssh ubuntu@34.222.48.98 npm install && npm run start:master'
       }
     }  
   }
-}
+
