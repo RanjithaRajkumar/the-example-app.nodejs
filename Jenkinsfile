@@ -29,8 +29,8 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
     //        sh 'ssh -v ubuntu@54.200.183.66'
       //      sh 'scp /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline_master/ ubuntu@54.200.183.66:/home/ubuntu/the-example-app.nodejs/'
      //   }
-    } 
-}                                                                                                                                          
+   // } 
+//}                                                                                                                                          
     stage('Build') {
       steps {
         sh 'ssh ubuntu@54.200.183.66 npm install && npm run start:dev'
