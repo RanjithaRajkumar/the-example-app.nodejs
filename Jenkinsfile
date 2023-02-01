@@ -20,7 +20,7 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
    steps{
 
      sshagent(['node-server']) {
-     sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline ubuntu@35.167.163.241:/home/ubuntu/the-example-app.nodejs/"    
+     sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline/master ubuntu@35.167.163.241:/home/ubuntu/the-example-app.nodejs/"    
  }
    }
   }
@@ -38,6 +38,7 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
         sh 'ssh ubuntu@35.167.163.241 npm install && npm run start:dev'
       }
     }  
-  }
+  
 
-}
+
+
