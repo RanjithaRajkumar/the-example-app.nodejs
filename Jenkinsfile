@@ -19,22 +19,22 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
    steps{
 
      sshagent(['nodejs']) {
-     sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline ubuntu@54.184.91.109:/home/ubuntu/the-example-app.nodejs/"    
+     sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline ubuntu@35.167.163.241:/home/ubuntu/the-example-app.nodejs/"    
  }
    }
    }
   //stage ('Deploy') {
    // steps{
     //    sshagent(credentials : ['node-server']) {
-     //       sh "ssh -o StrictHostKeyChecking=no ubuntu@54.184.91.109 'echo $HOME'"
-    //        sh 'ssh -v ubuntu@54.184.91.109'
-      //      sh 'scp /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline_master/ ubuntu@54.184.91.109:/home/ubuntu/the-example-app.nodejs/'
+     //       sh "ssh -o StrictHostKeyChecking=no ubuntu@35.167.163.241 'echo $HOME'"
+    //        sh 'ssh -v ubuntu@35.167.163.241'
+      //      sh 'scp /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline_master/ ubuntu@35.167.163.241:/home/ubuntu/the-example-app.nodejs/'
      //   }
    // } 
 //}                                                                                                                                          
     stage('Build') {
       steps {
-        sh 'ssh ubuntu@54.184.91.109 npm install && npm run start:dev'
+        sh 'ssh ubuntu@35.167.163.241 npm install && npm run start:dev'
       }
     }  
   }
