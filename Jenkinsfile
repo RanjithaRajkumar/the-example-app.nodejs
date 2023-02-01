@@ -15,22 +15,23 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
         git branch: 'master', credentialsId: '984d5de4-a336-4d3c-ba3f-ba6fad40e902', url: 'https://github.com/RanjithaRajkumar/the-example-app.nodejs.git'
       }
     }
-  //stage('DeployAppIntoNode'){
-   //steps{
+  
+  stage('DeployAppIntoNode'){
+   steps{
 
-    // sshagent(['nodejs']) {
-     //sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline ubuntu@35.167.163.241:/home/ubuntu/the-example-app.nodejs/"    
-// }
- //  }
-//   }
-  stage ('Deploy') {
-    steps{
-       sshagent(['node-server']) {
-            sh "ssh -o StrictHostKeyChecking=no ubuntu@35.167.163.241"
-           sh 'ssh -v ubuntu@35.167.163.241'
-            sh 'scp /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline_master/ ubuntu@35.167.163.241:/home/ubuntu/the-example-app.nodejs/'
+     sshagent(['node-server']) {
+     sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline ubuntu@35.167.163.241:/home/ubuntu/the-example-app.nodejs/"    
+ }
+   }
+  }
+  //stage ('Deploy') {
+   // steps{
+      // sshagent(['node-server']) {
+     //       sh "ssh -o StrictHostKeyChecking=no ubuntu@35.167.163.241"
+   //        sh 'ssh -v ubuntu@35.167.163.241'
+  //          sh 'scp /var/lib/jenkins/workspace/NodeJS_Sample_app_pipeline_master/ ubuntu@35.167.163.241:/home/ubuntu/the-example-app.nodejs/'
        }
-    } 
+  //  } 
 }                                                                                                                                          
     stage('Build') {
       steps {
